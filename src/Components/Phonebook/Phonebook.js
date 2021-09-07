@@ -25,9 +25,6 @@ export default function PhoneBook({ submitForm }) {
   const onSubmitForm = (e) => {
     e.preventDefault();
 
-    console.log(name);
-    console.log(number);
-
     submitForm({ name, number });
     formReset();
   };

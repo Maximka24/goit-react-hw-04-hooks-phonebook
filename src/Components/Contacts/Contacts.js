@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import s from "./Contacts.module.css";
 
+import GetFilterContacts from "./GetFilterContacts/GetFilterContacts";
+import ContactFilterList from "./ContactFilterList/ContactFilterList";
+
 const Contacts = ({
   mainListContact,
   contactsList,
@@ -15,30 +18,16 @@ const Contacts = ({
       {mainListContact.length === 0 ? (
         <p>Sorry! No contacts...</p>
       ) : (
-        <ul className={s.List}>
-          <label className={s.Label}>
-            Find contacts by name:
-            <input
-              type="text"
-              name="name"
-              value={filterContacts}
-              onChange={onChangeFilter}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-              required
-            />
-          </label>
-          {contactsList.map(({ id, name, number }) => (
-            <li key={id} className={s.ElemList}>
-              <p>
-                {name}: {number}
-              </p>
-              <button className={s.Btn} onClick={() => onDeleteContact(id)}>
-                Delete contact
-              </button>
-            </li>
-          ))}
-        </ul>
+        <>
+          <GetFilterContacts
+            filterContacts={filterContacts}
+            onChangeFilter={onChangeFilter}
+          />
+          <ContactFilterList
+            onDeleteContact={onDeleteContact}
+            contactsList={contactsList}
+          />
+        </>
       )}
     </div>
   );
