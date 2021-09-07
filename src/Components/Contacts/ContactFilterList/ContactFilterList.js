@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import s from "./ContactFilterList.css";
+import s from "./ContactFilterList.module.css";
 
 export default function ContactFilterList({ contactsList, onDeleteContact }) {
   return (

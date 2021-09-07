@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import style from "./GetFilterContacts.css";
+import style from "./GetFilterContacts.module.css";
 
 export default function GetFilterContacts({ filterContacts, onChangeFilter }) {
   return (
